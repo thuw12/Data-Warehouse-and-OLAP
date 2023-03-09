@@ -1,0 +1,137 @@
+﻿
+
+--1.	Thống kê tổng số vụ tự tử theo từng nhóm tuổi.
+SELECT  [Measures].[Suicides No] on Columns, [Dim SexAge].[Age].Members on Rows
+FROM [Suicide Rates DW];
+
+--2.	Thông tin quốc gia có tổng số vụ tự tử cao nhất và thấp nhất trong năm 2016.
+SELECT [Measures].[Suicides No] on Columns, 
+UNION (
+{topcount ([Dim CountryYear].[Country].Children,1,[Measures].[Suicides No])},
+{bottomcount ([Dim CountryYear].[Country].Children,1,[Measures].[Suicides No])} )
+on Rows
+FROM [Suicide Rates DW]
+WHERE [Dim CountryYear].[Year].&[2016];
+
+
+--3.	Tìm nhóm tuổi có tỉ lệ người tự tử cao nhất ở United States qua các năm.
+with member [Measures].[Suicide_Rates] AS '[Measures].[Suicides No]/[Measures].[Population]*100000', FORMAT_STRING = 'General Number'
+SELECT [Measures].[Suicide_Rates] on Columns, 
+Generate (
+	[Dim CountryYear].[Year].Children,
+	[Dim CountryYear].[Year].Currentmember * topcount ([Dim SexAge].[Age].Children,1,[Measures].[Suicide_Rates])) 
+	on Rows
+FROM [Suicide Rates DW]
+WHERE [Dim CountryYear].[Country].&[United States];
+
+--4.	Liệt kê top 10 quốc gia có tỉ lệ tự tử cao nhất trong năm 2016, 
+--sắp xếp theo thứ tự tỉ lệ tự tử giảm dần.
+SELECT [Measures].[Suicide_Rates] on Columns, 
+Head( Order( 
+			[Dim CountryYear].[CountryYear].Children,[Measures].[Suicide_Rates], desc)
+			, 10)
+			on Rows
+FROM [Suicide Rates DW]
+WHERE [Dim CountryYear].[Year].&[2016];
+
+--5.	Liệt kê những quốc gia và năm từng có tổng số vụ tự tử cao hơn 10 000 vụ.
+SELECT [Measures].[Suicides No] on Columns, 
+{Filter ([Dim CountryYear].[CountryYear].Members,[Measures].[Suicides No] > 10000)} on Rows
+FROM [Suicide Rates DW];
+
+--6.	Cho biết tên quốc gia, tổng số vụ tự tử, tỉ lệ tự tử 
+--của quốc gia có GDP bình quân đầu người cao nhất và thấp nhất trong năm 2016.
+SELECT {[Measures].[Suicides No], [Measures].[Suicide_Rates],[Measures].[Gdp Per Capita]} on Columns, 
+UNION (
+	{topcount ([Dim CountryYear].[Country].Children,1,[Measures].[Gdp Per Capita])},
+	{bottomcount ([Dim CountryYear].[Country].Children,1,[Measures].[Gdp Per Capita])} )
+on Rows
+FROM [Suicide Rates DW]
+WHERE [Dim CountryYear].[Year].&[2016];
+
+--7.Mỗi quốc gia, tìm năm có tổng số vụ tự tử cao nhất.
+SELECT [Measures].[Suicides No] on Columns, 
+Generate (
+	[Dim CountryYear].[Country].Children,
+	topcount ([Dim CountryYear].[Country].Currentmember*[Dim CountryYear].[Year].Children
+	,1,[Measures].[Suicides No])
+	) 
+	on Rows
+FROM [Suicide Rates DW];
+
+--8.	Trong năm 2012, tính tổng số vụ tự tử ở từng nhóm tuổi và giới tính.
+SELECT {[Measures].[Suicides No]} on Columns,
+{[Dim SexAge].[Age].Children*[Dim SexAge].[Sex].Children} on Rows
+FROM [Suicide Rates DW]
+WHERE [Dim CountryYear].[Year].&[2012];
+
+--9.	Mỗi quốc gia, cho biết nhóm tuổi có tỷ lệ tử tử cao nhất và thấp nhất.
+with member [Measures].[Suicide_Rates] AS '[Measures].[Suicides No]/[Measures].[Population]*100000', FORMAT_STRING = 'General Number'
+SELECT [Measures].[Suicide_Rates] on Columns, 
+Generate (
+	[Dim CountryYear].[Country].Children,
+	[Dim CountryYear].[Country].Currentmember * 
+	UNION(
+		topcount ([Dim SexAge].[Age].Children,1,[Measures].[Suicide_Rates]),
+		bottomcount ([Dim SexAge].[Age].Children,1,[Measures].[Suicide_Rates])
+		)
+	) 
+	on Rows
+FROM [Suicide Rates DW];
+
+--10.	 Cho biết Top10 nước có tỷ lệ tự tử ở độ tuổi 15-24 và 25-34 nhiều nhất từ năm 2000-2016.
+with member [Measures].[Suicide_Rates] AS '[Measures].[Suicides No]/[Measures].[Population]*100000', FORMAT_STRING = 'General Number'
+
+SELECT [Measures].[Suicides 100k Pop] on Columns, 
+topcount ([Dim CountryYear].[Country].Children,10,[Measures].[Suicide_Rates])
+	on Rows
+FROM [Suicide Rates DW]
+WHERE ({[Dim SexAge].[Age].&[15-24 years],[Dim SexAge].[Age].&[25-34 years]}
+	,{[Dim CountryYear].[Year].&[2000]:[Dim CountryYear].[Year].&[2016]});
+
+--11.	 Mỗi năm, tìm quốc gia có tỷ lệ tự tử cao nhất và thấp nhất, 
+-- đồng thời hiển thị GDP bình quân đầu người của quốc gia đó.
+with member [Measures].[Suicide_Rates] AS '[Measures].[Suicides No]/[Measures].[Population]*100000', FORMAT_STRING = 'General Number'
+SELECT {[Measures].[Suicide_Rates],[Measures].[Gdp Per Capita]} on Columns, 
+Generate (
+	[Dim CountryYear].[Year].Children,
+	[Dim CountryYear].[Year].Currentmember * 
+	UNION(
+		topcount ([Dim CountryYear].[Country].Children,1,[Measures].[Suicide_Rates]),
+		bottomcount ([Dim CountryYear].[Country].Children,1,[Measures].[Suicide_Rates])
+		)
+	)
+	on Rows
+FROM [Suicide Rates DW];
+
+--12.	 Tỉ lệ tự tử ở từng giới tính của Top 10 quốc gia có số dân đông nhất năm 2012.
+with member [Measures].[Suicide_Rates] AS '[Measures].[Suicides No]/[Measures].[Population]*100000', FORMAT_STRING = 'General Number'
+SELECT {[Measures].[Population],[Measures].[Suicide_Rates]} on Columns,
+(topcount ([Dim CountryYear].[Country].Children,10,[Measures].[Suicide_Rates]))*[Dim SexAge].[Sex].Children
+	on Rows
+FROM [Suicide Rates DW]
+WHERE [Dim CountryYear].[Year].&[2012];
+
+--13.
+-- Trong khoảng 10 năm gần nhất, năm nào thế giới ghi nhận tổng số vụ tự tử cao nhất
+SELECT [Measures].[Suicides No] on Columns,
+topcount ({[Dim CountryYear].[Year].&[2007]:[Dim CountryYear].[Year].&[2016]},1,[Measures].[Suicides No]) on Rows
+FROM [Suicide Rates DW];
+
+--14.	 Mỗi năm thống kê số vụ tự tử ở các nước theo GDP For Year giảm dần.
+SELECT  {[Measures].[Suicides No],[Measures].[Gdp For Year]} on Columns, 
+Generate (
+	[Dim CountryYear].[Year].Children,
+	[Dim CountryYear].[Year].Currentmember * 
+	Order(
+	[Dim CountryYear].[CountryYear].Children ,[Measures].[Gdp For Year], desc
+	)) on Rows
+FROM [Suicide Rates DW];
+
+--15.	Top 10 quốc gia có tổng số vụ tự tử cao nhất từ năm 2010 đến năm 2016, thống kê theo giới tính.
+SELECT [Measures].[Suicides No] on Columns,
+NON EMPTY DRILLDOWNLEVEL (
+						{ Head( Order( [Dim CountryYear].[Country].Children,[Measures].[Suicides No], desc), 10)}
+					* { [Dim SexAge].[Sex].children}) on Rows
+FROM [Suicide Rates DW]
+WHERE {[Dim CountryYear].[Year].&[2010]:[Dim CountryYear].[Year].&[2016]};

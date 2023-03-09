@@ -1,0 +1,137 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c1599bcd-477f-4448-8eee-f37bd89a4460" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Suicide Rates DW</ID>
+  <Name>Suicide Rates DW</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>SuicideRates_DW</DataSourceID>
+  <Schema>
+    <xs:schema id="Suicide_x0020_Rates_x0020_DW" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Suicide_x0020_Rates_x0020_DW" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="996e9190-27bd-4248-bee5-02cc84f42c1a">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fact" msprop:design-time-name="87183dbc-9ef4-4d19-a395-063dcc7017a6" msprop:DbTableName="Fact" msprop:FriendlyName="Fact" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="country_year" msprop:design-time-name="3c1e9ec2-fd0c-4df4-acd4-c762a930af08" msprop:DbColumnName="country_year" msprop:FriendlyName="country_year">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SexAgeID" msprop:design-time-name="cd4517fb-d0a1-4e90-9e22-a80f0cc54496" msprop:DbColumnName="SexAgeID" msprop:FriendlyName="SexAgeID" type="xs:int" />
+                  <xs:element name="suicides_no" msprop:design-time-name="907d002a-2f58-4b5f-93f9-054be0b26a4f" msprop:DbColumnName="suicides_no" msprop:FriendlyName="suicides_no" type="xs:int" minOccurs="0" />
+                  <xs:element name="population" msprop:design-time-name="54983a70-80af-442e-9973-58d810e28e32" msprop:DbColumnName="population" msprop:FriendlyName="population" type="xs:int" minOccurs="0" />
+                  <xs:element name="suicides_100k_pop" msprop:design-time-name="8c76d66b-b3f0-4700-aace-031dba656b10" msprop:DbColumnName="suicides_100k_pop" msprop:FriendlyName="suicides_100k_pop" type="xs:double" minOccurs="0" />
+                  <xs:element name="HDI_for_year" msprop:design-time-name="b7f490db-7ecf-406d-97b1-8adcbb2e0882" msprop:DbColumnName="HDI_for_year" msprop:FriendlyName="HDI_for_year" type="xs:double" minOccurs="0" />
+                  <xs:element name="gdp_for_year" msprop:design-time-name="bd7fb2d5-bfba-4536-927f-2adbb850ca46" msprop:DbColumnName="gdp_for_year" msprop:FriendlyName="gdp_for_year" type="xs:double" minOccurs="0" />
+                  <xs:element name="gdp_per_capita" msprop:design-time-name="ecb4f21e-c651-41ff-a44c-a16bfcd98e92" msprop:DbColumnName="gdp_per_capita" msprop:FriendlyName="gdp_per_capita" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_CountryYear" msprop:design-time-name="83eb3d2f-55b6-40cf-b27e-01c34c6f9510" msprop:DbTableName="Dim_CountryYear" msprop:FriendlyName="Dim_CountryYear" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="country_year" msprop:design-time-name="116344c0-80c2-4012-ba80-3c712b0a42a0" msprop:DbColumnName="country_year" msprop:FriendlyName="country_year">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="country" msprop:design-time-name="80efe9a7-232d-4154-b4a3-8cb977f77d5a" msprop:DbColumnName="country" msprop:FriendlyName="country" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="year" msprop:design-time-name="0392fff4-9125-4dcd-bfc7-1f47af76a562" msprop:DbColumnName="year" msprop:FriendlyName="year" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_SexAge" msprop:design-time-name="330925c2-f169-46b2-97d1-a685d6b8e451" msprop:DbTableName="Dim_SexAge" msprop:FriendlyName="Dim_SexAge" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SexAgeID" msprop:design-time-name="ca4f68e7-a67c-49fc-a560-ec3a491debfa" msprop:DbColumnName="SexAgeID" msprop:FriendlyName="SexAgeID" type="xs:int" />
+                  <xs:element name="sex" msprop:design-time-name="6d3d0ddc-7853-48cb-80cc-5938e6d5313b" msprop:DbColumnName="sex" msprop:FriendlyName="sex" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="age" msprop:design-time-name="fab544e0-8581-45e3-a413-fc79a2b90f56" msprop:DbColumnName="age" msprop:FriendlyName="age" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="country_year" />
+          <xs:field xpath="SexAgeID" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_CountryYear_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_CountryYear" />
+          <xs:field xpath="country_year" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_SexAge_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_SexAge" />
+          <xs:field xpath="SexAgeID" />
+        </xs:unique>
+        <xs:keyref name="fk_fact_countryyear" refer="dbo_Dim_CountryYear_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="country_year" />
+        </xs:keyref>
+        <xs:keyref name="fk_fact_sexage" refer="dbo_Dim_SexAge_Constraint1">
+          <xs:selector xpath=".//dbo_Fact" />
+          <xs:field xpath="SexAgeID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Suicide_x0020_Rates_x0020_DW xmlns="" />
+  </Schema>
+</DataSourceView>

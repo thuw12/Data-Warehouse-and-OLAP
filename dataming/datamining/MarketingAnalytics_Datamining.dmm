@@ -1,0 +1,655 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bd007220-6ecf-4caa-9f1e-18e8c5efd81c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MarketingAnalytics_Datamining</ID>
+  <Name>MarketingAnalytics_Datamining</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CaseTableName</Name>
+      <Value>dbo_MarketingAnalytics</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-10648" scrolltop="-3818" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="25464" y="12637" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="MarketingAnalytics" left="-9463" top="-3154" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="4128" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00002010000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_MarketingAnalytics" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-10648</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3818</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-9463</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-3154</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d767151b-2243-4291-a85b-d331c6d7ed79">
+    <DataSourceViewID>Marketing Analytics DW</DataSourceViewID>
+  </Source>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="46120a9b-be6f-4a61-9de5-51aceb410a3d">
+      <ID>Accepted Cmp Overall</ID>
+      <Name>Accepted Cmp Overall</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ac10649b-3aed-45f7-b26e-49f05b23b01b">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55bb11b2-10fd-4afa-9398-21592fc54800">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>AcceptedCmpOverall</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="80b36c3f-fc54-4a47-a0d6-9193ac89575f">
+      <ID>Complain</ID>
+      <Name>Complain</Name>
+      <Type>Long</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="727c8e8d-130a-4437-8292-e617e6e2e344">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="48b837c3-7f1d-4bcb-a716-fde7b71d8cf3">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>Complain</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="f591abba-4d35-493d-8dd6-6bf5905a673a">
+      <ID>Cus Id</ID>
+      <Name>Cus Id</Name>
+      <IsKey>true</IsKey>
+      <Type>Long</Type>
+      <Content>Key</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a68fca76-8dfa-4ea7-9f7c-843eba4fa97b">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="78222219-df10-4a8f-8200-e563bb0e08a4">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>Cus_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="597e46a3-c6f6-4ba8-ab79-3c56d341dd34">
+      <ID>Mnt Fish Products</ID>
+      <Name>Mnt Fish Products</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8e1eb70d-afc8-4844-a9a4-7963c5618791">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e620a712-bb8a-4aa2-be92-0bfc7da868c2">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>MntFishProducts</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="9279a415-08a8-42c9-89fe-805a44117667">
+      <ID>Mnt Fruits</ID>
+      <Name>Mnt Fruits</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0d1379ec-6cdd-422e-a9ae-cd3edca11f35">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="75026673-dbde-428f-a70d-3ae16580bfaa">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>MntFruits</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="4a89dbcd-593c-42cf-b912-1d3ee61d3190">
+      <ID>Mnt Gold Prods</ID>
+      <Name>Mnt Gold Prods</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="237a0bab-b9e8-4f14-8b9e-1cf72d348c67">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ff0143a8-1b86-4afa-82b9-04d4b99c3a31">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>MntGoldProds</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="fbcab798-a914-4486-a98f-acdfaac1ed53">
+      <ID>Mnt Meat Products</ID>
+      <Name>Mnt Meat Products</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="975d7ba2-61f1-4ba1-9b78-79be6e0e17a5">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a45f436d-57a5-494c-8dca-1850129c7801">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>MntMeatProducts</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="bdd08919-b3e9-4f6d-bcce-7d07df176741">
+      <ID>Mnt Sweet Products</ID>
+      <Name>Mnt Sweet Products</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ac7a6ceb-ad74-445f-8c0a-b9ef36e5a9af">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d8bad106-ceba-4269-8632-8c1e44e1062d">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>MntSweetProducts</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="fa338871-4fda-4540-8759-a0616c1f1bd3">
+      <ID>Mnt Wines</ID>
+      <Name>Mnt Wines</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="04646669-b187-4b48-a3f5-f8b212c86710">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="17d5fec8-e536-4ded-9aba-c0d6e2087e4c">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>MntWines</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="a750c0b4-bb02-4103-8f58-a8c5d110058c">
+      <ID>Num Catalog Purchases</ID>
+      <Name>Num Catalog Purchases</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="65353436-7fef-4a62-8120-b671488b1843">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3aa972f8-f1d3-4b8d-8cd0-79db90d26254">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>NumCatalogPurchases</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="23343368-46b4-4a54-bc50-c69008a3cb0c">
+      <ID>Num Deals Purchases</ID>
+      <Name>Num Deals Purchases</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44d5820b-b21a-4276-a9a4-f0c5e6be25b0">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="302dd3bf-1cc1-476f-b5a4-6dd601df91f1">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>NumDealsPurchases</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="bbfffc0c-fd19-4b44-bd76-dadc43e0f01b">
+      <ID>Num Store Purchases</ID>
+      <Name>Num Store Purchases</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="23f607d5-f8e3-4579-adc2-bc0317cbf345">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0a5d4f81-503a-4d4e-8604-abee449f062a">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>NumStorePurchases</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="a6db6a22-09f0-4012-8067-8b8b51d63eef">
+      <ID>Num Web Purchases</ID>
+      <Name>Num Web Purchases</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="44dcb967-4f9e-4ef7-a8dc-4e3e7ef69513">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a72828c6-b2ac-41dd-935c-0e123e24a5b5">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>NumWebPurchases</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="f19d3efa-682c-45ad-91a0-21b156236193">
+      <ID>Num Web Visits Month</ID>
+      <Name>Num Web Visits Month</Name>
+      <Type>Long</Type>
+      <Content>Continuous</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ab4ea265-74e1-4885-b792-2c8cd40984a8">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b2deabd8-143f-41ec-be49-635c397b6f50">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>NumWebVisitsMonth</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="66d9be1c-c3d6-4933-9e5e-56576fe8c7d9">
+      <ID>Recency</ID>
+      <Name>Recency</Name>
+      <Type>Long</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a6954afa-7a94-4368-bde7-15c3a00d9526">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="48a03ae9-993d-46a0-b086-899a365af188">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>Recency</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="fdfa99de-53a5-45dd-a7e5-5b2c75dae6c8">
+      <ID>Response</ID>
+      <Name>Response</Name>
+      <Type>Long</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0f1d9a32-3634-46e3-8874-d6aa3e52c572">
+          <DataType>Integer</DataType>
+          <DataSize>-1</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2c1dbbd7-4955-4e39-8d47-cd56925df925">
+            <TableID>dbo_MarketingAnalytics</TableID>
+            <ColumnID>Response</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel dwd:design-time-name="d481ab8e-4b49-41db-b769-b3ea782cd2e7">
+      <ID>MarketingAnalytics_Datamining_DecisionTrees</ID>
+      <Name>MarketingAnalytics_Datamining_DecisionTrees</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Decision_Trees</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="6aa92f5d-6433-46b4-80f4-ef275b0a8092">
+          <ID>Accepted Cmp Overall</ID>
+          <Name>Accepted Cmp Overall</Name>
+          <SourceColumnID>Accepted Cmp Overall</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="69934385-1b77-436c-9a95-103c721000ee">
+          <ID>Complain</ID>
+          <Name>Complain</Name>
+          <SourceColumnID>Complain</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="d446bd9a-61af-4bd5-baaa-76b66a464f03">
+          <ID>Cus Id</ID>
+          <Name>Cus Id</Name>
+          <SourceColumnID>Cus Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="d0fdf57e-c606-4e99-a3da-3c2725cc6ef6">
+          <ID>Mnt Fish Products</ID>
+          <Name>Mnt Fish Products</Name>
+          <SourceColumnID>Mnt Fish Products</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="1eb4bd0c-eb41-4a20-9f34-4a07262728f5">
+          <ID>Mnt Fruits</ID>
+          <Name>Mnt Fruits</Name>
+          <SourceColumnID>Mnt Fruits</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="3ccab487-e5d1-47b5-9905-ef3fca9e2a83">
+          <ID>Mnt Gold Prods</ID>
+          <Name>Mnt Gold Prods</Name>
+          <SourceColumnID>Mnt Gold Prods</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="6a20ae49-d99b-4ad0-8a3e-f75a55af0fc1">
+          <ID>Mnt Meat Products</ID>
+          <Name>Mnt Meat Products</Name>
+          <SourceColumnID>Mnt Meat Products</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="25ce0ccd-d019-449d-a97c-91cb5d7a1bc5">
+          <ID>Mnt Sweet Products</ID>
+          <Name>Mnt Sweet Products</Name>
+          <SourceColumnID>Mnt Sweet Products</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="db1782d6-139d-4a76-9912-5a1eb03bddc9">
+          <ID>Mnt Wines</ID>
+          <Name>Mnt Wines</Name>
+          <SourceColumnID>Mnt Wines</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="6b16149b-52a9-4ba2-b30c-01e09b0294db">
+          <ID>Num Catalog Purchases</ID>
+          <Name>Num Catalog Purchases</Name>
+          <SourceColumnID>Num Catalog Purchases</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="847c05f9-9dc5-4810-9a36-2603401752d1">
+          <ID>Num Deals Purchases</ID>
+          <Name>Num Deals Purchases</Name>
+          <SourceColumnID>Num Deals Purchases</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="e686fa57-9566-4794-8975-1a2ad73635ea">
+          <ID>Num Store Purchases</ID>
+          <Name>Num Store Purchases</Name>
+          <SourceColumnID>Num Store Purchases</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="cbcfc045-0de0-489f-825d-ae6e4a1230ca">
+          <ID>Num Web Purchases</ID>
+          <Name>Num Web Purchases</Name>
+          <SourceColumnID>Num Web Purchases</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="eae6066c-cc63-4f7b-b8f5-40746450a06d">
+          <ID>Num Web Visits Month</ID>
+          <Name>Num Web Visits Month</Name>
+          <SourceColumnID>Num Web Visits Month</SourceColumnID>
+          <ModelingFlags>
+            <ModelingFlag>REGRESSOR</ModelingFlag>
+          </ModelingFlags>
+        </Column>
+        <Column dwd:design-time-name="cc1e4f84-293c-4599-851c-99915990ab65">
+          <ID>Recency</ID>
+          <Name>Recency</Name>
+          <SourceColumnID>Recency</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="acbe2d65-b0f8-46b9-8766-2e7091be53f7">
+          <ID>Response</ID>
+          <Name>Response</Name>
+          <SourceColumnID>Response</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+      </Columns>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="a355f942-5e77-4d4d-a3e9-faeb05338992">
+      <ID>MarketingAnalytics_Datamining_Clustering</ID>
+      <Name>MarketingAnalytics_Datamining_Clustering</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Clustering</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="16aaf567-2b02-4a95-8d3d-532cc99b4626">
+          <ID>Accepted Cmp Overall</ID>
+          <Name>Accepted Cmp Overall</Name>
+          <SourceColumnID>Accepted Cmp Overall</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="cd9c7613-6010-4a39-9513-161ed1b178ea">
+          <ID>Complain</ID>
+          <Name>Complain</Name>
+          <SourceColumnID>Complain</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="b262073f-113a-4c4d-b37d-11ff54e78654">
+          <ID>Cus Id</ID>
+          <Name>Cus Id</Name>
+          <SourceColumnID>Cus Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="8160ed11-47d6-4bbe-a337-02f728e5203f">
+          <ID>Mnt Fish Products</ID>
+          <Name>Mnt Fish Products</Name>
+          <SourceColumnID>Mnt Fish Products</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e38ce4ca-3ab8-44e7-91f6-8a76d1c86ce5">
+          <ID>Mnt Fruits</ID>
+          <Name>Mnt Fruits</Name>
+          <SourceColumnID>Mnt Fruits</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="57a41040-36d8-4ac7-a468-6be1ac857d75">
+          <ID>Mnt Gold Prods</ID>
+          <Name>Mnt Gold Prods</Name>
+          <SourceColumnID>Mnt Gold Prods</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="d4370de9-dfcc-4831-81fc-be272e4d02cc">
+          <ID>Mnt Meat Products</ID>
+          <Name>Mnt Meat Products</Name>
+          <SourceColumnID>Mnt Meat Products</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="c83c7812-5de4-4bb4-9d65-f5f7b7e253f1">
+          <ID>Mnt Sweet Products</ID>
+          <Name>Mnt Sweet Products</Name>
+          <SourceColumnID>Mnt Sweet Products</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="5f414d96-8d99-4e58-ba6a-c7db9c3415e1">
+          <ID>Mnt Wines</ID>
+          <Name>Mnt Wines</Name>
+          <SourceColumnID>Mnt Wines</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="865ceaf2-d069-4ea5-b11d-c624967b97a9">
+          <ID>Num Catalog Purchases</ID>
+          <Name>Num Catalog Purchases</Name>
+          <SourceColumnID>Num Catalog Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="07c720a2-305f-4736-8a1f-5739be23b6a8">
+          <ID>Num Deals Purchases</ID>
+          <Name>Num Deals Purchases</Name>
+          <SourceColumnID>Num Deals Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="94464b05-eafa-4925-b95e-edb9b54d2bb2">
+          <ID>Num Store Purchases</ID>
+          <Name>Num Store Purchases</Name>
+          <SourceColumnID>Num Store Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="cf3988fb-127d-45e3-820c-99411dfcf833">
+          <ID>Num Web Purchases</ID>
+          <Name>Num Web Purchases</Name>
+          <SourceColumnID>Num Web Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="7a1a05a1-fa5c-4588-be44-63e78d0d6788">
+          <ID>Num Web Visits Month</ID>
+          <Name>Num Web Visits Month</Name>
+          <SourceColumnID>Num Web Visits Month</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="62184d8b-fdbe-49e5-965b-c8a5b6746f34">
+          <ID>Recency</ID>
+          <Name>Recency</Name>
+          <SourceColumnID>Recency</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="3ad3ed7e-c5d5-46fb-bbae-366053d2d680">
+          <ID>Response</ID>
+          <Name>Response</Name>
+          <SourceColumnID>Response</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+      </Columns>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="1e9b883e-5199-4083-a2df-ee5b5c937e5d">
+      <ID>MarketingAnalytics_Datamining_LogisticRegression</ID>
+      <Name>MarketingAnalytics_Datamining_LogisticRegression</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Logistic_Regression</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="138db00d-ac9c-4888-a6a4-2cf66c16138a">
+          <ID>Accepted Cmp Overall</ID>
+          <Name>Accepted Cmp Overall</Name>
+          <SourceColumnID>Accepted Cmp Overall</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="79fa1556-bc2d-4e10-beb8-74d6bddb71a6">
+          <ID>Complain</ID>
+          <Name>Complain</Name>
+          <SourceColumnID>Complain</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="108365a1-99d4-41ba-b0c2-8b0fb5bbfb6b">
+          <ID>Cus Id</ID>
+          <Name>Cus Id</Name>
+          <SourceColumnID>Cus Id</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="e8a66b30-8530-40f3-b45a-7305580fbf66">
+          <ID>Mnt Fish Products</ID>
+          <Name>Mnt Fish Products</Name>
+          <SourceColumnID>Mnt Fish Products</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="8cf3fc4d-d7f8-4c51-9642-7dfe2279dc66">
+          <ID>Mnt Fruits</ID>
+          <Name>Mnt Fruits</Name>
+          <SourceColumnID>Mnt Fruits</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="29f425e3-f8f4-4d8e-aaad-89c97221df86">
+          <ID>Mnt Gold Prods</ID>
+          <Name>Mnt Gold Prods</Name>
+          <SourceColumnID>Mnt Gold Prods</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="0e7be673-fe4c-4522-94ce-f30c521428de">
+          <ID>Mnt Meat Products</ID>
+          <Name>Mnt Meat Products</Name>
+          <SourceColumnID>Mnt Meat Products</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="d174bf50-e958-4052-afdd-9c4ecbfb0f0e">
+          <ID>Mnt Sweet Products</ID>
+          <Name>Mnt Sweet Products</Name>
+          <SourceColumnID>Mnt Sweet Products</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="72e8f383-2ca1-4eb4-8346-d29ca12a71c2">
+          <ID>Mnt Wines</ID>
+          <Name>Mnt Wines</Name>
+          <SourceColumnID>Mnt Wines</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="18e40acb-e7fa-4e77-958f-97275c46d6cc">
+          <ID>Num Catalog Purchases</ID>
+          <Name>Num Catalog Purchases</Name>
+          <SourceColumnID>Num Catalog Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="f186d49d-4f4d-4237-ac74-2773719df939">
+          <ID>Num Deals Purchases</ID>
+          <Name>Num Deals Purchases</Name>
+          <SourceColumnID>Num Deals Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="add6a890-45d5-4ef8-b42e-38187ca12ab6">
+          <ID>Num Store Purchases</ID>
+          <Name>Num Store Purchases</Name>
+          <SourceColumnID>Num Store Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="4c47574b-4aca-4531-b8e7-53f585a2e383">
+          <ID>Num Web Purchases</ID>
+          <Name>Num Web Purchases</Name>
+          <SourceColumnID>Num Web Purchases</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="0d85a8ea-66d5-45d0-b4de-317c8433c62e">
+          <ID>Num Web Visits Month</ID>
+          <Name>Num Web Visits Month</Name>
+          <SourceColumnID>Num Web Visits Month</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e69ebe7f-50ab-42a6-8b9c-e966419973bf">
+          <ID>Recency</ID>
+          <Name>Recency</Name>
+          <SourceColumnID>Recency</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="97b047fc-4cc5-46ea-8831-dc03197e0246">
+          <ID>Response</ID>
+          <Name>Response</Name>
+          <SourceColumnID>Response</SourceColumnID>
+          <Usage>PredictOnly</Usage>
+        </Column>
+      </Columns>
+    </MiningModel>
+  </MiningModels>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+</MiningStructure>
